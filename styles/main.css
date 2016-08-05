@@ -9,8 +9,8 @@ html {
 }
 
 body{
-    width: 1000px;
-    margin: 0 auto;    
+    margin: 0px auto 0px auto;
+    max-width: 1280px;  
     background-color: #DCD9D6;
     font-family: verdana, Arial, sans-serif;
 }
@@ -18,14 +18,16 @@ body{
 /* ===================================================================================== */
 
 #flags {
-    height: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
     color: black;
 }
 
-#flags ul{
-    float: right; 
+#flags ul{ 
+    margin-top: 5px;
     display: inline-block;
-    padding-top: 5px;
     padding-right: 10px;
 }
 
@@ -50,36 +52,30 @@ body{
 /* ===================================================================================== */
 
 #header {
-
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end; 
+    align-items: flex-end;
+    margin-top: 5px;
     height: 150px;
     background-color: black;
-    background: url('../images/Header1_0.png');    
+    background-image: url('../images/Header1_0.png');    
     background-repeat: no-repeat;
 }
 
-#logo {
-    height: 150px;   
-}
-
-#logo h1 {
+#header h1 {
     color: #557AFF;
     font-size: 26px;
-    padding-top: 110px;
-    padding-left: 550px;
 }
 
-#logo_wolf {
-    float: right;
-    width: 129px;
-    padding-top: 10px;
-    padding-right: 10px;
-    border: none;
+#header div {
+    margin: 10px;
 }
  
  /* ===================================================================================== */
  
 #nav {
-    width: 1000px;
     margin: 0px;
     padding: 0px;
     background-color: black;
@@ -87,23 +83,40 @@ body{
     font-weight: bold;
 }
 
-#nav ul {
-    margin: 4px 0px 4px 4px;
+#nav ul{
+    margin: 2px 0px;
+    display: inline-block;
+}
+
+#nav ul li{
+    display: inline-block;
+}
+
+#nav ul.internal{
+    display:inline-block;
+    margin-right: 2px;
 }
 
 #nava {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     color: white;
+    border-top: solid;
+    border-bottom: solid;
+    border-color: black;
     background-color: black;
-    height: 32px;
-    margin: 0px 0px 0px 0px;
     padding: 2px 2px;
+    margin-left: 2px;
 }
 
 #nava a {
+    margin: 4px 0px 4px 0px;
     color: white;
     background-color: black;
     text-decoration: none;
-    padding: 2px 5px 2px 5px;
+    padding: 4px 5px;
 }
 
 #nava a.selected {
@@ -117,19 +130,21 @@ body{
 }
 
 #navb {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     color: black;
     background-color: white;
-    height: 32px;
     border-bottom: solid;
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px;    
+    padding: 0px;   
 }
 
 #navb a {
     color: black;
     background-color: white;
     text-decoration: none;
-    padding: 2px 5px 2px 5px;
+    padding: 4px 5px;
 }
 
 #navb a.selected {
@@ -142,18 +157,8 @@ body{
     background-color: black;
 }
 
-#nav ul{
-  display: inline-block;
-}
-
-#nav ul li{
-  display: inline-block;
-}
-
-#nav ul.internal{
-    float: right;
-    display:inline-block;
-    margin-right: 2px;
+#navb ul li{
+    margin: 4px 0px 4px 0px;
 }
 
 /* ===================================================================================== */
@@ -165,16 +170,14 @@ body{
 }
 
 #topic {
-    margin: 0px 70px;
+    margin: 0px 50px;
     line-height:20px;
     text-align: justify; 
-    font-size: 14px;
-    padding-top: 8px;    
 }
 
 #topic h1 {
     font-size: 20px;
-    padding-top: 20px;
+    padding-top: 10px;
     padding-bottom: 10px;
     margin-left: -35px;
     border-width: 2px;
@@ -194,10 +197,6 @@ body{
 
 #topic p.noindent {
     text-indent: 0em;
-}
-
-#topic textarea.msg {
-    max-width: 860px;
 }
 
 #topic table {
@@ -265,11 +264,8 @@ body{
 /* ===================================================================================== */
 
 #footer {
-    margin: 0 auto;
-    width: 1000px;
-    font-size: 11px;
     text-align: center;
-    margin-bottom: 10px;
+    margin-top: 5px;
 }
 
 #footer p{

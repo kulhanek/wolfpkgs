@@ -3,7 +3,7 @@
     <xsl:template match="/">
     <h1><xsl:value-of select="root/repository/title"/></h1>
     <p>MetaPackages are special purpose packages that do not contain actual software. They simply depend on other packages to be installed, which allows entire sets of software to be installed by selecting only the appropriate metapackage.</p> 
-    <table>
+    <table class="list">
         <tr>
             <th class="dpkg">Package</th>
             <th>Version</th>
