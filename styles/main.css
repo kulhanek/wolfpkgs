@@ -67,10 +67,26 @@ body{
 #header h1 {
     color: #557AFF;
     font-size: 26px;
+    margin-bottom: 5px;
 }
 
 #header div {
     margin: 10px;
+}
+
+#header a {
+    color: #557AFF;
+    text-decoration: none;
+}
+
+#header a:active {
+    text-decoration: none;
+    color: blue;
+}
+
+#header a:hover {
+    text-decoration: none;
+    color: red;
 }
  
  /* ===================================================================================== */
@@ -97,38 +113,6 @@ body{
     margin-right: 2px;
 }
 
-#nava {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    color: white;
-    border-top: solid;
-    border-bottom: solid;
-    border-color: black;
-    background-color: black;
-    padding: 2px 2px;
-    margin-left: 2px;
-}
-
-#nava a {
-    margin: 4px 0px 4px 0px;
-    color: white;
-    background-color: black;
-    text-decoration: none;
-    padding: 4px 5px;
-}
-
-#nava a.selected {
-    color: black;
-    background-color: white;
-}
-
-#nava a:hover {
-    color: black;
-    background-color: white;
-}
-
 #navb {
     display: flex;
     flex-direction: row;
@@ -137,6 +121,7 @@ body{
     color: black;
     background-color: white;
     border-bottom: solid;
+    border-top: solid;    
     padding: 0px;   
 }
 
