@@ -1,0 +1,29 @@
+#!/bin/bash
+
+LOC="https://wolf.ncbr.muni.cz/whitezone/packages"
+
+# install prerequisities
+apt-get -y install software-properties-common || exit 1
+
+# install repository keys
+# add NCBR repository key
+wget -q $LOC/ncbr-packages-pub-key.asc -O - | apt-key add - || exit 1
+# add MetaCentrum repository key
+wget -q $LOC/meta-packages-pub-key.asc -O - | apt-key add - || exit 1
+
+# initialize repositories
+# NCBR repository
+add-apt-repository -y 'deb https://wolf.ncbr.muni.cz/whitezone/packages trusty ncbr'
+# MetaCentrum repository (perun packages)
+add-apt-repository -y 'deb ftp://depot1.mc.cesnet.cz/ all main'
+# standard OpenAFS is broaken in the Ubuntu repository
+add-apt-repository -y ppa:openafs/stable
+
+# update repositories
+apt-get update
+
+# termination
+echo ""
+echo ">>> Repository initialization finished sucessfully!"
+echo ""
+exit 0

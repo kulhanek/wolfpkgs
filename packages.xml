@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+<repository>
+    <title>NCBR PRIVATE</title>
+    <url>https://wolf.ncbr.muni.cz/whitezone/packages/private</url>
+    <maintainer>LCC Support &lt;support@lcc.ncbr.muni.cz&gt;</maintainer>
+    <distribution>
+        <name>Ubuntu 14.04 LTS (trusty)</name>
+        <code>trusty</code>
+    </distribution>
+    <iscript>initialize-repos</iscript>
+    <desc></desc>
+</repository>
+<packages>
+	<package>
+		<name>ncbr-afs-software</name>
+		<vers>1.0.0</vers>
+		<sdesc>AFS software repository (Infinity and Metacentrum software)</sdesc>
+		<ldesc> longer description</ldesc>
+		<tag></tag>
+		<depends>
+			<depend><package>ncbr-krb5-einfra</package></depend>
+			<depend><package>openafs-krb5</package></depend>
+			<depend><package>openafs-client</package></depend>
+			<depend><package>libc6:i386</package></depend>
+			<depend><package>libxmu6:i386</package></depend>
+			<depend><package>lsb-core</package></depend>
+		</depends>
+	</package>
+	<package>
+		<name>ncbr-afs-software-config</name>
+		<vers>1.0.1</vers>
+		<sdesc>AFS software repository (Infinity and Metacentrum software)</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<depend><package>debconf (>= 0.5) | debconf-2.0</package></depend>
+		</depends>
+	</package>
+	<package>
+		<name>ncbr-auth-perun</name>
+		<vers>1.0.0</vers>
+		<sdesc>authentication (Kerberos META realm) and authorization services (perun)</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<depend><package>ncbr-perun-authc-einfra</package></depend>
+			<depend><package>ncbr-perun-authz-services</package></depend>
+			<depend><package>perun-slave-process-fs-home</package></depend>
+			<depend><package>perun-slave-process-fs-scratch</package></depend>
+		</depends>
+	</package>
+	<package>
+		<name>ncbr-ceitec-perun-client</name>
+		<vers>1.0.0</vers>
+		<sdesc>whole NCBR/CEITEC perun client</sdesc>
+		<ldesc></ldesc>
+		<tag>meta</tag>
+		<depends>
+			<depend><package>ncbr-auth-perun</package></depend>
+			<depend><package>ncbr-afs-software</package></depend>
+			<depend><package>ncbr-iptables</package></depend>
+			<depend><package>ncbr-metanfs4</package></depend>
+			<depend><package>ncbr-ssh-config</package></depend>
+			<depend><package>ncbr-sshd-config</package></depend>
+			<depend><package>ncbr-env-infinity</package></depend>
+		</depends>
+	</package>
+	<package>
+		<name>ncbr-env-infinity</name>
+		<vers>1.0.0</vers>
+		<sdesc>update environmental setup including Infinity activation</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<depend><package></package></depend>
+		</depends>
+	</package>
+	<package>
+		<name>ncbr-iptables</name>
+		<vers>1.0.6</vers>
+		<sdesc>iptables with implicit rules, all IN except of ssh, ping, and related/established conections is denied, all OUT is permitted</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<depend><package>iptables</package></depend>
+		</depends>
+	</package>
+	<package>
+		<name>ncbr-krb5-einfra</name>
+		<vers>1.0.5</vers>
+		<sdesc>Kerberos support for MetaCentrum and CESNET services</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<depend><package>ntp</package></depend>
+			<depend><package>krb5-user</package></depend>
+		</depends>
+	</package>
+	<package>
+		<name>ncbr-metanfs4</name>
+		<vers>1.0.1</vers>
+		<sdesc>access to MetaCentrum and CESNET storages</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<depend><package>nscd</package></depend>
+			<depend><package>ncbr-krb5-einfra</package></depend>
+			<depend><package>nfs-common</package></depend>
+			<depend><package>autofs</package></depend>
+		</depends>
+	</package>
+	<package>
+		<name>ncbr-perun-authc-einfra</name>
+		<vers>1.0.0</vers>
+		<sdesc>authentication by Kerberos (META realms)</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<depend><package>ncbr-krb5-einfra</package></depend>
+			<depend><package>libpam-krb5</package></depend>
+			<depend><package>perun-slave-meta-key</package></depend>
+			<depend><package>perun-slave-base</package></depend>
+			<depend><package>perun-slave-process-k5login</package></depend>
+		</depends>
+	</package>
+	<package>
+		<name>ncbr-perun-authz-services</name>
+		<vers>1.0.0</vers>
+		<sdesc>perun services for authorization</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<depend><package>perun-slave-meta-key</package></depend>
+			<depend><package>perun-slave-base</package></depend>
+			<depend><package>perun-slave-process-passwd</package></depend>
+			<depend><package>perun-slave-process-group</package></depend>
+		</depends>
+	</package>
+	<package>
+		<name>ncbr-ptrace-enable</name>
+		<vers>1.0.0</vers>
+		<sdesc>enable ptrace</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<depend><package></package></depend>
+		</depends>
+	</package>
+	<package>
+		<name>ncbr-ssh-config</name>
+		<vers>1.0.5</vers>
+		<sdesc>modified ssh client configurations for NCBR and CEITEC use</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<depend><package>openssh-client</package></depend>
+		</depends>
+	</package>
+	<package>
+		<name>ncbr-sshd-config</name>
+		<vers>1.0.0</vers>
+		<sdesc>modified ssh server configurations for NCBR and CEITEC use</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<depend><package>openssh-server</package></depend>
+		</depends>
+	</package>
+</packages>
+</root>
