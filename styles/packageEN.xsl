@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:param name="lang" select="'en'"/>
     <xsl:param name="package"/>
     <xsl:template match="/">
     <xsl:for-each select="root/packages/package">
         <xsl:if test="name = $package">
+        <div id="topic">
             <h1><xsl:value-of select="/root/repository/title"/> / <xsl:value-of select="name"/></h1>
             <table>   
                 <tr>
@@ -19,7 +21,7 @@
                             <xsl:choose>
                                 <xsl:when test="contains(package,'ncbr')">
                                     <a>
-                                        <xsl:attribute name="href">indexEN.html?show=package&amp;package=<xsl:value-of select="package" /></xsl:attribute>
+                                        <xsl:attribute name="href">index.php?lang=<xsl:value-of select="$lang" />&amp;show=package&amp;package=<xsl:value-of select="package" /></xsl:attribute>
                                         <xsl:value-of select="package"/>
                                     </a>
                                 </xsl:when>
@@ -65,6 +67,7 @@
             </table>
             <h2>Description</h2>
             <p><xsl:value-of select="ldesc"/></p>
+            </div>
         </xsl:if>
     </xsl:for-each>
 
