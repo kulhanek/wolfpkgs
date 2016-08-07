@@ -65,7 +65,6 @@ function load_iscript(name)
         client=new ActiveXObject("Microsoft.XMLHTTP");
     }
     client.open('GET', name, true);
-    client.overrideMimeType('text/plain; charset=x-user-defined');
     client.onreadystatechange = function() {
         if (client.readyState == 4 && client.status == 200) {
             var res = hljs.highlight("bash",client.responseText);
