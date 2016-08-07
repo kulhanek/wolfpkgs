@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:param name="lang" select="'en'"/>
+    <xsl:param name="action" select="'overview'"/>
     <xsl:param name="overview" select="'disabled'"/>
     <xsl:param name="metadpkgs" select="'disabled'"/>
     <xsl:param name="alldpkgs" select="'disabled'"/>
@@ -14,13 +15,14 @@
             <link rel="stylesheet" type="text/css" href="styles/main.css" />
             <link rel="stylesheet" type="text/css" href="highlight/styles/default.css" />
             <script src="highlight/highlight.pack.js"><xsl:comment/></script>
+            <script>hljs.initHighlightingOnLoad();</script>
         </head>
         <body>
             <ul id="flags">
-                <li><a class="selected" href="index.php?lang={$lang}"><img src="images/en.png" alt="english flag" />English</a> </li>
+                <li><a class="selected" href="index.php?lang={$lang}&amp;show={$action}"><img src="images/en.png" alt="english flag" />English</a> </li>
             </ul>
             <div id="header">
-                <h1><a href="/whitezone/root/index.php?lang=en">WOLF</a> / <a href="index.php?lang={$lang}">Computations</a> / <a href="index.php?lang={$lang}">Packages</a></h1>
+                <h1><a href="/whitezone/root/index.php?lang={$lang}">WOLF</a> / <a href="/whitezone/root/index.php?lang={$lang}&amp;show=computations">Computations</a> / <a href="index.php?lang={$lang}">Packages</a></h1>
                 <div><img src="images/logo.png" alt="WOLF logo" /></div>
             </div>
             <ul id="nav">

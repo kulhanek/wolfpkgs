@@ -127,7 +127,6 @@ a:hover {
 
 #topic {
     margin: 0px 50px;
-    line-height:20px;
     text-align: justify; 
 }
 
@@ -195,26 +194,6 @@ a:hover {
 #topic tr td.right {
     text-align: right;
 }
-
-#topic a {
-    text-decoration: none;
-    color: blue;
-}
-
-#topic a:active {
-    text-decoration: none;
-    color: blue;
-}
-
-#topic a:hover {
-    text-decoration: none;
-    color: red;
-}
-
-#topic ul{
-    margin-left: 20px;
-}
-
 
 /* ===================================================================================== */
 

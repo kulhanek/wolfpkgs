@@ -21,6 +21,9 @@ $xslt = new xsltProcessor;
 
 // process show command --------------------------------------------------------
 $data = DomDocument::load('packages.xml');
+$xpath = new DOMXpath($data);
+$repo_url = $xpath->query("/root/repository/url")->item(0)->nodeValue;
+$repo_iscript = $xpath->query("/root/repository/iscript")->item(0)->nodeValue;
 
 switch($show){
     case 'overview':
@@ -48,14 +51,24 @@ switch($show){
         break;
     case 'instructions':
         $xslt->importStyleSheet(DomDocument::load(sprintf('styles/instructions%s.xsl',$lang)));
-        $res = $xslt->transformToDoc($data); 
-}
+        $res = $xslt->transformToDoc($data);
+        $nodes = $res->getElementsByTagName('code');
+        foreach ($nodes as $node) {
+            if( $node->getAttribute('id') == 'iscript' ){
+                $iscript = file_get_contents($repo_url . '/' . $repo_iscript);
+                $iscript_node = $res->createTextNode($iscript);
+                $node->appendChild($iscript_node);
+            }
+        }
+        break;
+    }
 
 // create final html page
 $xslt->importStyleSheet(DomDocument::load(sprintf('styles/index%s.xsl',$lang)));
+$xslt->setParameter('','action',$show);
 $xslt->setParameter('',$show,'selected');
 $fin = $xslt->transformToDoc($res);
-$fin->formatOutput = true;
+//$fin->formatOutput = true;
 print $fin->saveXML(); 
 
 ?>
