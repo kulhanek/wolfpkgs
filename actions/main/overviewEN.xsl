@@ -6,15 +6,15 @@
         <h1>Introduction</h1>
         <p>This site provides you with information about all the packages available in the <xsl:value-of select="root/repository/title"/> package repository. Information how to activate access to this repository is available in <a href="index.php?lang={$lang}&amp;show=instructions">Instructions</a>. You can either browse <a href="index.php?lang={$lang}&amp;show=alldpkgs">all packages</a> or special purpose <a href="index.php?lang={$lang}&amp;show=metadpkgs">MetaPackages</a>, which are suitable to setup your machine for a desired function by installing all necessary software.</p>
         <h1><xsl:value-of select="root/repository/title"/></h1>
-        <table>
+        <table class="info">
             <tr>
-            <td class="label">Repo URL:</td><td><a><xsl:attribute name="href"><xsl:value-of select="root/repository/url"/></xsl:attribute><xsl:value-of select="root/repository/url"/></a></td>
+                <td class="label">Package Repository:</td><td><a><xsl:attribute name="href"><xsl:value-of select="root/repository/url"/></xsl:attribute><xsl:value-of select="root/repository/url"/></a></td>
             </tr>
             <tr>
-            <td class="label">Maintainer:</td><td><a><xsl:attribute name="href">mailto:<xsl:value-of select="root/repository/maintainer"/></xsl:attribute><xsl:value-of select="root/repository/maintainer"/></a></td>
+                <td class="label">Repository Maintainer:</td><td><a><xsl:attribute name="href">mailto:<xsl:value-of select="root/repository/maintainer"/></xsl:attribute><xsl:value-of select="root/repository/maintainer"/></a></td>
             </tr>
             <tr>
-            <td class="label">For distribution:</td><td><xsl:value-of select="root/repository/distribution/name"/></td>
+                <td class="label">Supported Distribution:</td><td><xsl:value-of select="root/repository/distribution/name"/></td>
             </tr>
         </table>
         <p><xsl:value-of select="root/repository/desc"/></p>

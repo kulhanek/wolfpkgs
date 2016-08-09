@@ -125,81 +125,11 @@ a:hover {
     padding-bottom: 10px;
 }
 
-#topic {
-    margin: 0px 50px;
-    text-align: justify; 
-}
-
-#topic h1 {
-    font-size: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-left: -35px;
-    border-width: 2px;
-}
-
-#topic h2 {
-    color: #00409c;
-    font-size: 15px;
-    padding-top: 8px;
-    padding-bottom: 5px;    
-}
-
-#topic p {
-    text-indent: 1em;
-    padding-bottom: 5px;
-}
-
-#topic p.noindent {
-    text-indent: 0em;
-}
-
-#topic table {
-    border-width: 1px;
-    border-spacing: 5px 2px;
-    border-collapse: separate;
-    margin-bottom: 10px;
-    margin-top: 10px;
-}
-
-#topic table.list tr:nth-child(even) {
-    background-color: #EEEEEE;
-}
-
-#topic tr th {
-    padding-left: 10px;
-    padding-right: 10px;
-    border-bottom: solid;
-    text-align: center;
-}
-
-#topic td {
-    vertical-align: top;
-}
-
-#topic tr th.dpkg {
-    width: 200px;
-}
-
-#topic tr td {
-    text-align: left;
-}
-
-#topic tr td.label {
-    font-weight: bold;
-    color: #000033;
-    text-align: left;
-}
-
-#topic tr td.right {
-    text-align: right;
-}
-
 /* ===================================================================================== */
 
 #footer {
     text-align: center;
-    margin: 5px 0px;
+    margin: 5px 0px 0px 0px;
     padding: 5px 5px;
     background-color:   #eaeaea;
 }

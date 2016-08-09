@@ -4,16 +4,14 @@
     <xsl:template match="/">
     <div id="topic">
         <h1><xsl:value-of select="root/repository/title"/></h1>
-        <p>MetaPackages are special purpose packages that do not contain actual software. They simply depend on other packages to be installed, which allows entire sets of software to be installed by selecting only the appropriate metapackage.</p> 
-        <table class="list">
+        <table class="list">      
             <tr>
-                <th class="dpkg">Package</th>
+                <th>Package</th>
                 <th>Version</th>
-                <th>Description</th>
+                <th>Annotation</th>
             </tr>
             <xsl:for-each select="root/packages/package">
                 <xsl:sort select="name"/>
-                <xsl:if test="tag = 'meta'">
                 <tr>
                     <td>
                         <a>
@@ -24,7 +22,6 @@
                     <td><xsl:value-of select="vers"/></td>
                     <td><xsl:value-of select="sdesc"/></td>
                 </tr>
-                </xsl:if>
             </xsl:for-each>
         </table>
     </div>
