@@ -40,19 +40,19 @@
                                         <xsl:choose>
                                             <xsl:when test="contains(current(),':')">
                                                 <a>
-                                                    <xsl:attribute name="href">http://packages.ubuntu.com/<xsl:value-of select="/root/repository/distribution/code"/>/<xsl:value-of select="substring-before(package,':')" /></xsl:attribute>
+                                                    <xsl:attribute name="href">http://packages.ubuntu.com/<xsl:value-of select="/root/repository/distribution/code"/>/<xsl:value-of select="substring-before(current(),':')" /></xsl:attribute>
                                                     <xsl:value-of select="current()"/>
                                                 </a>
                                             </xsl:when>
                                             <xsl:when test="contains(current(),' ')">
                                                 <a>
-                                                    <xsl:attribute name="href">http://packages.ubuntu.com/<xsl:value-of select="/root/repository/distribution/code"/>/<xsl:value-of select="substring-before(package,' ')" /></xsl:attribute>
+                                                    <xsl:attribute name="href">http://packages.ubuntu.com/<xsl:value-of select="/root/repository/distribution/code"/>/<xsl:value-of select="substring-before(current(),' ')" /></xsl:attribute>
                                                     <xsl:value-of select="current()"/>
                                                 </a>
                                             </xsl:when>
                                             <xsl:otherwise>
                                                 <a>
-                                                    <xsl:attribute name="href">http://packages.ubuntu.com/<xsl:value-of select="/root/repository/distribution/code"/>/<xsl:value-of select="package" /></xsl:attribute>
+                                                    <xsl:attribute name="href">http://packages.ubuntu.com/<xsl:value-of select="/root/repository/distribution/code"/>/<xsl:value-of select="current()" /></xsl:attribute>
                                                     <xsl:value-of select="current()"/>
                                                 </a>
                                             </xsl:otherwise>
