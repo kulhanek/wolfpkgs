@@ -3,7 +3,7 @@
     <xsl:param name="lang" select="'en'"/>
     <xsl:param name="action" select="'main'"/>
     <xsl:param name="show" select="'overview'"/>
-
+    <xsl:param name="package" select="'none'"/>
     <xsl:template match="/">
     <html xmlns="http://www.w3.org/1999/xhtml">
         <head>
@@ -18,7 +18,7 @@
         </head>
         <body>
             <ul id="flags">
-                <li><a id="EN" href="index.php?lang=en&amp;action={$action}&amp;show={$show}"><img src="images/en.png" alt="english flag" />English</a> </li>
+                <li><a id="EN" href="index.php?lang=en&amp;action={$action}&amp;show={$show}&amp;package={$package}"><img src="images/en.png" alt="english flag" />English</a> </li>
             </ul>
             <div id="header">
                 <h1><a href="/whitezone/root/index.php?lang={$lang}">WOLF</a> / <a href="/whitezone/root/index.php?lang={$lang}&amp;show=computations">Computations</a> / <a href="index.php?lang={$lang}">Packages</a></h1>

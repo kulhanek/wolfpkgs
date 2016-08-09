@@ -36,9 +36,9 @@ if( ! file_exists( sprintf('actions/%s/%s%s.xsl',$action,$show,$lang) ) ){
     $show = 'overview';
 }
 
+$dpkg = 'none';
 switch($show){
     case 'package':
-        $dpkg = 'none';
         if( isset($_GET["package"]) ){
             $dpkg = $_GET["package"];
         }
@@ -66,6 +66,7 @@ $xslt->importStyleSheet(DomDocument::load(sprintf('actions/%s/index%s.xsl',$acti
 $xslt->setParameter('','lang',strtolower($lang));
 $xslt->setParameter('','action',$action);
 $xslt->setParameter('','show',$show);
+$xslt->setParameter('','package',$dpkg);
 $fin = $xslt->transformToDoc($res);
 
 // select menu items
