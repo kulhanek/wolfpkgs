@@ -14,7 +14,7 @@
                 <td class="label">Repository Maintainer:</td><td><a><xsl:attribute name="href">mailto:<xsl:value-of select="root/repository/maintainer"/></xsl:attribute><xsl:value-of select="root/repository/maintainer"/></a></td>
             </tr>
             <tr>
-                <td class="label">Supported Distribution:</td><td><xsl:value-of select="root/repository/distribution/name"/></td>
+                <td class="label">Supported Distributions:</td><td><xsl:value-of select="root/repository/distribution/name"/></td>
             </tr>
         </table>
         <p><xsl:value-of select="root/repository/desc"/></p>
