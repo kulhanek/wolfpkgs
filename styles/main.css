@@ -31,7 +31,7 @@ a:hover {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-top: 5px;
     padding-right: 10px;
 }
@@ -57,6 +57,11 @@ a:hover {
     font-weight: bold;
 }
 
+#flags li.nav a {
+    font-size: 1em;
+    color: #274fa4;
+}
+ 
 /* ===================================================================================== */
 
 #header {
@@ -66,17 +71,29 @@ a:hover {
     justify-content: space-between; 
     align-items: center;
     margin-top: 5px;
-    background-color: black;
+    background-color: #274fa4;
 }
 
 #header h1 {
-    color: #557AFF;
+    color: white;
     font-size: 26px;
     margin: 5px 10px;
 }
 
 #header div {
-    margin: 10px;
+    margin: 5px 5px 3px 5px;
+}
+
+#header a {
+    color: white;
+}
+
+#header a:visited {
+    color: white;
+}
+
+#header a:hover {
+    color: red;
 }
 
  /* ===================================================================================== */
@@ -92,7 +109,8 @@ a:hover {
     
     background-color: white;
     border-bottom: solid;
-    border-top: solid;    
+    border-top: solid;
+    border-color: #274fa4;
     padding: 0px 2px 2px 2px;   
 }
 
@@ -101,8 +119,12 @@ a:hover {
     display: inline-block;
 }
 
+#nav li.right {
+    margin-left: auto;
+}
+
 #nav a {
-    color: black;
+    color: #274fa4;
     background-color: white;
     padding: 4px 5px;
     margin-right: 2px;
@@ -110,12 +132,12 @@ a:hover {
 
 #nav a.selected {
     color: white;
-    background-color: black;
+    background-color: #274fa4;
 }
 
 #nav a:hover {
-    color: white;
-    background-color: black;
+    color: red;
+    background-color: #274fa4;
 }
 
 /* ===================================================================================== */
@@ -125,13 +147,115 @@ a:hover {
     padding-bottom: 10px;
 }
 
+#topic {
+    margin: 0px 50px;
+    text-align: justify; 
+}
+
+
+#topic h1 {
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: -35px;
+    border-width: 2px;
+}
+
+#topic h2 {
+    color: #00409c;
+    font-size: 15px;
+    padding-top: 8px;
+    padding-bottom: 5px;    
+}
+
+#topic div.warning {
+    margin: 10px -35px 5px -35px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: red;
+    background-color: yellow;
+    color: red;
+}
+
+#topic div.warning h1 {
+    text-align: center;
+    }
+    
+#topic div.warning p {
+    margin: 10px;
+    }
+
+#topic p {
+    text-indent: 1em;
+    padding-bottom: 5px;
+}
+
+#topic p.noindent {
+    text-indent: 0em;
+}
+
+#topic p.center {
+    text-indent: 0em;
+    text-align: center;
+}
+
+#topic table {
+    border-width: 1px;
+    border-spacing: 5px 2px;
+    border-collapse: separate;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#topic table.list tr:nth-child(even) {
+    background-color: #EEEEEE;
+}
+
+#topic tr th {
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom: solid;
+    text-align: center;
+}
+
+#topic td {
+    vertical-align: top;
+}
+
+#topic tr th.dpkg {
+    width: 200px;
+}
+
+#topic tr td {
+    text-align: left;
+}
+
+#topic tr td.label {
+    font-weight: bold;
+    color: #000033;
+    text-align: left;
+}
+
+#topic tr td.right {
+    text-align: right;
+}
+
+#topic ul {
+    margin: 0px 35px;
+}
+
+#topic li {
+    text-align: left;
+}
+
 /* ===================================================================================== */
 
 #footer {
     text-align: center;
-    margin: 5px 0px 0px 0px;
+    margin: 5px 0px;
     padding: 5px 5px;
-    background-color:   #eaeaea;
+    background-color:   #eaeffa;
+    font-size: 75%;
 }
 
 /* ===================================================================================== */
@@ -141,5 +265,18 @@ a:hover {
 @media (max-width: 700px) {
     #header div {
         display: none;
+    }
+    
+    #topic {
+        margin: 0px 5px;
+        text-align: justify; 
+    } 
+    
+    #topic h1 {
+    margin-left: 0px;
+    }
+    
+    #topic div.warning {
+    margin: 10px 0px 5px 0px; 
     }
 }

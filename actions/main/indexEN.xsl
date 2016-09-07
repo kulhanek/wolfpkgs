@@ -10,18 +10,25 @@
             <title>WOLF Cluster - Classroom 1.18/A4/UKB</title>            
             <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
             <meta name="viewport" content="width=device-width,initial-scale=1" />
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
             <link rel="stylesheet" type="text/css" href="styles/main.css" />
-            <link rel="stylesheet" type="text/css" href="styles/topic.css" />
             <link rel="stylesheet" type="text/css" href="highlight/styles/default.css" />
             <script src="highlight/highlight.pack.js"><xsl:comment/></script>
             <script>hljs.initHighlightingOnLoad();</script>
         </head>
         <body>
             <ul id="flags">
-                <li><a id="EN" href="index.php?lang=en&amp;action={$action}&amp;show={$show}&amp;package={$package}"><img src="images/en.png" alt="english flag" />English</a> </li>
+                <!-- do not use lang in navigation links here, the language will be take from the root site cookie --> 
+                <li class="nav">
+                    <a class="material-icons" href="index.php?action=main&amp;show=overview">home</a> / 
+                    <a href="index.php?action=main&amp;show=support">Support</a>
+                </li>
+                <li>
+                    <a id="EN" href="index.php?lang=en&amp;action={$action}&amp;show={$show}"><img src="images/en.png" alt="english flag" />English</a> 
+                </li>
             </ul>
             <div id="header">
-                <h1><a href="/whitezone/root/index.php?lang={$lang}">WOLF</a> / <a href="/whitezone/root/index.php?lang={$lang}&amp;show=computations">Computations</a> / <a href="index.php?lang={$lang}">Packages</a></h1>
+                <h1>Packages</h1>
                 <div><img src="images/logo.png" alt="WOLF logo" /></div>
             </div>
             <ul id="nav">
