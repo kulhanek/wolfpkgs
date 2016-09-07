@@ -20,8 +20,8 @@
             <ul id="flags">
                 <!-- do not use lang in navigation links here, the language will be take from the root site cookie --> 
                 <li class="nav">
-                    <a class="material-icons" href="index.php?action=main&amp;show=overview">home</a> / 
-                    <a href="index.php?action=main&amp;show=support">Support</a>
+                    <a class="material-icons" href="/whitezone/root/index.php?action=main&amp;show=overview">home</a> / 
+                    <a href="/whitezone/root/index.php?action=main&amp;show=support">Support</a>
                 </li>
                 <li>
                     <a id="EN" href="index.php?lang=en&amp;action={$action}&amp;show={$show}"><img src="images/en.png" alt="english flag" />English</a> 
