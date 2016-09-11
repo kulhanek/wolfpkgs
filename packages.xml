@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
 <repository>
-    <title>CEITEC MU / NCBR PRIVATE</title>
-    <url>https://wolf.ncbr.muni.cz/whitezone/packages/private</url>
+    <title>CEITEC MU/NCBR PRIVATE</title>
+    <url>https://lcc.ncbr.muni.cz/whitezone/packages/private</url>
     <maintainer>LCC Support &lt;support@lcc.ncbr.muni.cz&gt;</maintainer>
     <distribution>
         <name>Ubuntu 14.04 LTS (trusty)</name>
@@ -13,39 +13,45 @@
 </repository>
 <packages>
 	<package>
-		<name>ncbr-afs-software</name>
-		<vers>1.0.0</vers>
-		<sdesc>software repository via AFS</sdesc>
-		<ldesc> It provides MetaCentrum and Infinity software repositories.</ldesc>
+		<name>aaaa-ldap-auth-config</name>
+		<vers>1.0.1</vers>
+		<sdesc>null configuration for LDAP client</sdesc>
+		<ldesc></ldesc>
 		<tag></tag>
-		<depends>
-			<package>ncbr-krb5-einfra</package>
-			<package>openafs-krb5</package>
-			<package>openafs-client</package>
-			<package>libc6:i386</package>
-			<package>libxmu6:i386</package>
-			<package>lsb-core</package>
-		</depends>
+		<pre-depends>
+			<package>debconf (>= 0.5) | debconf-2.0</package>
+		</pre-depends>
 	</package>
 	<package>
-		<name>ncbr-afs-software-config</name>
+		<name>aaaa-software-afs-ics-config</name>
 		<vers>1.0.1</vers>
 		<sdesc>configuration for AFS</sdesc>
 		<ldesc> AFS Cell:  ics.muni.cz
  AFS Cache: 900 MB</ldesc>
 		<tag></tag>
-		<depends>
+		<pre-depends>
 			<package>debconf (>= 0.5) | debconf-2.0</package>
-		</depends>
+		</pre-depends>
+	</package>
+	<package>
+		<name>aaaa-wolf-ldap-server-config</name>
+		<vers>1.0.3</vers>
+		<sdesc>null configuration for LDAP server</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<pre-depends>
+			<package>perl-base</package>
+			<package>debconf (>= 0.5) | debconf-2.0</package>
+		</pre-depends>
 	</package>
 	<package>
 		<name>ncbr-auth-perun</name>
-		<vers>1.0.0</vers>
+		<vers>1.0.1</vers>
 		<sdesc>authentication and authorization services via perun</sdesc>
 		<ldesc> Create "/scratch" directory
  Perun services:
-  fs-home
-  fs-scratch</ldesc>
+  fs_home -&gt; /etc/skel
+  fs_scratch</ldesc>
 		<tag></tag>
 		<depends>
 			<package>ncbr-perun-authc-einfra</package>
@@ -55,29 +61,46 @@
 		</depends>
 	</package>
 	<package>
-		<name>ncbr-ceitec-perun-client</name>
-		<vers>1.0.0</vers>
-		<sdesc>CEITEC MU / NCBR perun client</sdesc>
-		<ldesc></ldesc>
-		<tag>show-as-meta</tag>
-		<depends>
-			<package>ncbr-auth-perun</package>
-			<package>ncbr-afs-software</package>
-			<package>ncbr-iptables</package>
-			<package>ncbr-metanfs4</package>
-			<package>ncbr-ssh-config</package>
-			<package>ncbr-sshd-config</package>
-			<package>ncbr-env-infinity</package>
-		</depends>
-	</package>
-	<package>
 		<name>ncbr-env-infinity</name>
 		<vers>1.0.0</vers>
 		<sdesc>environmental setup for Infinity activation</sdesc>
 		<ldesc></ldesc>
 		<tag></tag>
+		<replaces>
+			<package>bash</package>
+		</replaces>
+	</package>
+	<package>
+		<name>ncbr-hsm-backup-einfra</name>
+		<vers>1.0.0</vers>
+		<sdesc>HSM backup mount points for e-infra namespace</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
 		<depends>
+			<package>nfs-utils</package>
 		</depends>
+		<suggests>
+			<package>ncbr-hsm-backup</package>
+		</suggests>
+		<conflicts>
+			<package>ncbr-hsm-backup-einfra</package>
+		</conflicts>
+	</package>
+	<package>
+		<name>ncbr-hsm-backup-ncbr</name>
+		<vers>1.0.0</vers>
+		<sdesc>HSM backup mount points for ncbr namespace</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<package>nfs-utils</package>
+		</depends>
+		<suggests>
+			<package>ncbr-hsm-backup</package>
+		</suggests>
+		<conflicts>
+			<package>ncbr-hsm-backup-einfra</package>
+		</conflicts>
 	</package>
 	<package>
 		<name>ncbr-iptables</name>
@@ -91,8 +114,15 @@
 		</depends>
 	</package>
 	<package>
+		<name>ncbr-kdc-client</name>
+		<vers>1.0.7</vers>
+		<sdesc>client for key distribution centre</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+	</package>
+	<package>
 		<name>ncbr-krb5-einfra</name>
-		<vers>1.0.5</vers>
+		<vers>1.0.6</vers>
 		<sdesc>Kerberos support for MetaCentrum and CESNET services</sdesc>
 		<ldesc></ldesc>
 		<tag></tag>
@@ -100,6 +130,84 @@
 			<package>ntp</package>
 			<package>krb5-user</package>
 		</depends>
+		<conflicts>
+			<package>krb5-config</package>
+		</conflicts>
+		<provides>
+			<package>krb5-config</package>
+		</provides>
+		<replaces>
+			<package>krb5-config</package>
+		</replaces>
+	</package>
+	<package>
+		<name>ncbr-krb5-einfra-heimdal</name>
+		<vers>1.0.5</vers>
+		<sdesc>Kerberos support for MetaCentrum and CESNET services employing Heimdal implementation</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<package>ntp</package>
+			<package>heimdal-clients</package>
+		</depends>
+		<conflicts>
+			<package>krb5-config</package>
+		</conflicts>
+		<provides>
+			<package>krb5-config</package>
+		</provides>
+		<replaces>
+			<package>krb5-config</package>
+		</replaces>
+	</package>
+	<package>
+		<name>ncbr-ldap-auth</name>
+		<vers>1.0.20</vers>
+		<sdesc>core package for management of accounts via NCBR LDAP</sdesc>
+		<ldesc>  ** basic setup of nsswitch for LDAP
+  ** create home
+  ** create scratch</ldesc>
+		<tag></tag>
+		<pre-depends>
+			<package>aaaa-ldap-auth-config</package>
+		</pre-depends>
+		<depends>
+			<package>nscd</package>
+			<package>libnss-ldap</package>
+			<package>libpam-ldap</package>
+			<package>ldap-utils</package>
+			<package>libpam-passwdqc</package>
+		</depends>
+		<replaces>
+			<package>libldap-2.4-2</package>
+		</replaces>
+	</package>
+	<package>
+		<name>ncbr-ldap-metanfs4</name>
+		<vers>1.0.10</vers>
+		<sdesc>access to MetaCentrum and CESNET storages</sdesc>
+		<ldesc> ** addopted for ncbr-ldap-auth</ldesc>
+		<tag></tag>
+		<depends>
+			<package>ncbr-metanfs4</package>
+			<package>ncbr-ldap-auth</package>
+		</depends>
+		<replaces>
+			<package>ncbr-ldap-auth</package>
+		</replaces>
+	</package>
+	<package>
+		<name>ncbr-login-defs</name>
+		<vers>1.0.1</vers>
+		<sdesc>default rules for umask</sdesc>
+		<ldesc> default umask 0077</ldesc>
+		<tag></tag>
+		<depends>
+			<package>login</package>
+		</depends>
+		<replaces>
+			<package>login</package>
+		</replaces>
 	</package>
 	<package>
 		<name>ncbr-metanfs4</name>
@@ -113,6 +221,34 @@
 			<package>nfs-common</package>
 			<package>autofs</package>
 		</depends>
+		<replaces>
+			<package>nfs-common</package>
+		</replaces>
+	</package>
+	<package>
+		<name>ncbr-old-wolf-auth-ldap</name>
+		<vers>1.0.10</vers>
+		<sdesc>management of accounts via NCBR LDAP</sdesc>
+		<ldesc> ** users with 'wolf' host flag are authorized
+ ** quota is set to 150 MB to the root of FS (/) for every user</ldesc>
+		<tag></tag>
+		<depends>
+			<package>ncbr-ldap-auth</package>
+			<package>quota</package>
+		</depends>
+	</package>
+	<package>
+		<name>ncbr-old-wolf-ssh-banner</name>
+		<vers>1.0.4</vers>
+		<sdesc>banner for sshd server</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<package>ncbr-ssh-server</package>
+		</depends>
+		<replaces>
+			<package>ncbr-ssh-server</package>
+		</replaces>
 	</package>
 	<package>
 		<name>ncbr-perun-authc-einfra</name>
@@ -152,33 +288,314 @@
 		<ldesc> enable gdb,  mpi and strace - Stepan &amp; Trnka 20.6.2016 - #164590
  it is required for cma on sokar(kraken)</ldesc>
 		<tag></tag>
+		<replaces>
+			<package>bash</package>
+		</replaces>
+	</package>
+	<package>
+		<name>ncbr-software-afs-ics</name>
+		<vers>1.0.0</vers>
+		<sdesc>software repository via AFS</sdesc>
+		<ldesc> It provides MetaCentrum and Infinity software repositories.</ldesc>
+		<tag></tag>
+		<pre-depends>
+			<package>aaaa-software-afs-ics-config</package>
+		</pre-depends>
 		<depends>
+			<package>ncbr-krb5-einfra</package>
+			<package>openafs-krb5</package>
+			<package>openafs-client</package>
+			<package>libc6:i386</package>
+			<package>libxmu6:i386</package>
+			<package>lsb-core</package>
 		</depends>
 	</package>
 	<package>
-		<name>ncbr-ssh-config</name>
+		<name>ncbr-software-hsm-ncbr</name>
+		<vers>1.0.1</vers>
+		<sdesc>software repository provided by Ceitec HSM</sdesc>
+		<ldesc> ** this is obsolete package, use software repository provided by ics.muni.cz AFS</ldesc>
+		<tag></tag>
+		<depends>
+			<package>nfs-common</package>
+		</depends>
+	</package>
+	<package>
+		<name>ncbr-ssh-client-config</name>
 		<vers>1.0.5</vers>
 		<sdesc>modified ssh client configurations</sdesc>
-		<ldesc> ** see man ssh_config for further details **
- HashKnownHosts no
+		<ldesc> HashKnownHosts no
  ForwardX11 yes
  GSSAPIAuthentication yes
- GSSAPIDelegateCredentials yes</ldesc>
+ GSSAPIDelegateCredentials yes
+ ** see man ssh_config for further details **</ldesc>
 		<tag></tag>
 		<depends>
 			<package>openssh-client</package>
 		</depends>
+		<replaces>
+			<package>openssh-client</package>
+		</replaces>
 	</package>
 	<package>
-		<name>ncbr-sshd-config</name>
+		<name>ncbr-ssh-server-config</name>
 		<vers>1.0.0</vers>
 		<sdesc>modified ssh server configurations</sdesc>
-		<ldesc> ** see man sshd_config for further details **
- GSSAPIAuthentication yes</ldesc>
+		<ldesc> GSSAPIAuthentication yes
+ ** see man sshd_config for further details **</ldesc>
 		<tag></tag>
 		<depends>
 			<package>openssh-server</package>
 		</depends>
+		<replaces>
+			<package>openssh-server</package>
+		</replaces>
+	</package>
+	<package>
+		<name>ncbr-update-manager-nolts</name>
+		<vers>1.0.1</vers>
+		<sdesc>disable announcements of upgrades to newer LTS</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<package>ubuntu-release-upgrader-core</package>
+		</depends>
+		<replaces>
+			<package>ubuntu-release-upgrader-core</package>
+		</replaces>
+	</package>
+	<package>
+		<name>ncbr-wolf-common</name>
+		<vers>1.0.1</vers>
+		<sdesc>common setup for any wolf node</sdesc>
+		<ldesc></ldesc>
+		<tag>show-as-meta</tag>
+		<depends>
+			<package>ncbr-update-manager-nolts</package>
+			<package>ncbr-metanfs4</package>
+			<package>ncbr-env-infinity</package>
+			<package>ncbr-software-afs-ics</package>
+			<package>ncbr-kdc-client</package>
+			<package>ncbr-wolf-ssh-banner</package>
+			<package>ncbr-ssh-client-config</package>
+			<package>ncbr-ssh-server-config</package>
+			<package>ncbr-wolf-home-node</package>
+			<package>ncbr-login-defs</package>
+			<package>ncbr-ptrace-enable</package>
+			<package>ncbr-auth-perun</package>
+		</depends>
+	</package>
+	<package>
+		<name>ncbr-wolf-home-node</name>
+		<vers>1.0.2</vers>
+		<sdesc>home directories from the wolf master - client side</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<package>nfs-common</package>
+			<package>autofs</package>
+		</depends>
+		<replaces>
+			<package>autofs</package>
+		</replaces>
+	</package>
+	<package>
+		<name>ncbr-wolf-home-server</name>
+		<vers>1.0.3</vers>
+		<sdesc>home directories from the wolf master - server side</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<package>nfs-kernel-server</package>
+		</depends>
+		<replaces>
+			<package>nfs-kernel-server</package>
+		</replaces>
+	</package>
+	<package>
+		<name>ncbr-wolf-iptables-node</name>
+		<vers>1.0.8</vers>
+		<sdesc>iptables for server of WOLF cluster</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<package>ncbr-iptables</package>
+		</depends>
+		<conflicts>
+			<package>ncbr-wolf-iptables-server</package>
+		</conflicts>
+		<replaces>
+			<package>ncbr-iptables</package>
+		</replaces>
+	</package>
+	<package>
+		<name>ncbr-wolf-iptables-server</name>
+		<vers>1.0.9</vers>
+		<sdesc>iptables for server of WOLF cluster</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<package>ncbr-iptables</package>
+		</depends>
+		<conflicts>
+			<package>ncbr-wolf-iptables-node</package>
+		</conflicts>
+		<replaces>
+			<package>ncbr-iptables</package>
+		</replaces>
+	</package>
+	<package>
+		<name>ncbr-wolf-ldap-server</name>
+		<vers>1.0.10</vers>
+		<sdesc>LDAP server (replica) for NCBR LDAP accounts.</sdesc>
+		<ldesc> ** This package cannot be cleanly uninstalled! **</ldesc>
+		<tag></tag>
+		<pre-depends>
+			<package>aaaa-wolf-ldap-server-config</package>
+		</pre-depends>
+		<depends>
+			<package>slapd</package>
+			<package>ncbr-kdc-client</package>
+			<package>ldap-utils</package>
+		</depends>
+		<replaces>
+			<package>slapd</package>
+		</replaces>
+	</package>
+	<package>
+		<name>ncbr-wolf-licsrv-icm</name>
+		<vers>1.0.2</vers>
+		<sdesc>licence server for ICM software</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<package>lsb</package>
+		</depends>
+	</package>
+	<package>
+		<name>ncbr-wolf-lightdm-conf</name>
+		<vers>1.0.2</vers>
+		<sdesc>LightDM support for LDAP accounts.</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<package>lightdm</package>
+		</depends>
+		<replaces>
+			<package>lightdm</package>
+		</replaces>
+	</package>
+	<package>
+		<name>ncbr-wolf-ssh-banner</name>
+		<vers>1.0.4</vers>
+		<sdesc>banner for sshd server</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<package>ncbr-ssh-server</package>
+		</depends>
+		<replaces>
+			<package>ncbr-ssh-server</package>
+		</replaces>
+	</package>
+	<package>
+		<name>ncbr-wolf-unity-conf</name>
+		<vers>1.0.9</vers>
+		<sdesc>Settings of indicator session - to disable restart, shutdown, lock &amp; switch user</sdesc>
+		<ldesc></ldesc>
+		<tag></tag>
+		<depends>
+			<package>indicator-session</package>
+			<package>dconf-service</package>
+			<package>dconf-cli</package>
+			<package>libglib2.0-bin</package>
+			<package>policykit-1</package>
+			<package>pm-utils</package>
+			<package>krusader</package>
+		</depends>
+		<replaces>
+			<package>pm-utils</package>
+		</replaces>
+	</package>
+	<package>
+		<name>ncbr-zzz-personal-client</name>
+		<vers>1.0.0</vers>
+		<sdesc>personal client setup suitable for a notebook or home usage</sdesc>
+		<ldesc> MetaCentrum and CESNET storages
+ Kerberos support for EINFRA/META realms
+ optional pam_krb5 (you must have the same user name as in EINFRA)</ldesc>
+		<tag>show-as-meta</tag>
+		<depends>
+			<package>ncbr-iptables</package>
+			<package>ncbr-metanfs4</package>
+			<package>ncbr-ssh-config</package>
+		</depends>
+	</package>
+	<package>
+		<name>ncbr-zzz-perun-client</name>
+		<vers>1.0.0</vers>
+		<sdesc>CEITEC MU/NCBR perun client</sdesc>
+		<ldesc></ldesc>
+		<tag>show-as-meta</tag>
+		<depends>
+			<package>ncbr-auth-perun</package>
+			<package>ncbr-afs-software</package>
+			<package>ncbr-iptables</package>
+			<package>ncbr-metanfs4</package>
+			<package>ncbr-ssh-config</package>
+			<package>ncbr-sshd-config</package>
+			<package>ncbr-env-infinity</package>
+		</depends>
+	</package>
+	<package>
+		<name>ncbr-zzz-wolf-node</name>
+		<vers>1.0.1</vers>
+		<sdesc>all setup for any wolf cluster node except of server node</sdesc>
+		<ldesc></ldesc>
+		<tag>show-as-meta</tag>
+		<depends>
+			<package>ncbr-wolf-common</package>
+			<package>ncbr-wolf-iptables-node</package>
+		</depends>
+		<conflicts>
+			<package>ncbr-zzz-wolf-server</package>
+		</conflicts>
+	</package>
+	<package>
+		<name>ncbr-zzz-wolf-old</name>
+		<vers>1.0.0</vers>
+		<sdesc>all setup for wolf-old.ncbr.muni.cz machine</sdesc>
+		<ldesc></ldesc>
+		<tag>show-as-meta</tag>
+		<depends>
+			<package>ncbr-update-manager-nolts</package>
+			<package>ncbr-old-wolf-auth-ldap</package>
+			<package>ncbr-iptables</package>
+			<package>ncbr-ldap-metanfs4</package>
+			<package>ncbr-env-infinity</package>
+			<package>ncbr-software-hsm-ncbr</package>
+			<package>ncbr-kdc-client</package>
+			<package>ncbr-hsm-backup-ncbr</package>
+			<package>ncbr-ssh-server-config</package>
+			<package>ncbr-old-wolf-ssh-banner</package>
+			<package>ncbr-ssh-client-config</package>
+		</depends>
+	</package>
+	<package>
+		<name>ncbr-zzz-wolf-server</name>
+		<vers>1.0.0</vers>
+		<sdesc>all setup for any wolf cluster node except of server node</sdesc>
+		<ldesc></ldesc>
+		<tag>show-as-meta</tag>
+		<depends>
+			<package>ncbr-wolf-common</package>
+			<package>ncbr-wolf-iptables-server</package>
+			<package>ncbr-wolf-home-server</package>
+			<package>ncbr-wolf-ldap-server</package>
+		</depends>
+		<conflicts>
+			<package>ncbr-zzz-wolf-client</package>
+		</conflicts>
 	</package>
 </packages>
 </root>
