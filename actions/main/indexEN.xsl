@@ -32,7 +32,6 @@
             </div>
             <ul id="nav">
                 <li><a id="overview" href="index.php?lang={$lang}&amp;action={$action}&amp;show=overview">Overview</a></li>
-                <li><a id="metadpkgs" href="index.php?lang={$lang}&amp;action={$action}&amp;show=metadpkgs">MetaPackages</a></li>
                 <li><a id="alldpkgs" href="index.php?lang={$lang}&amp;action={$action}&amp;show=alldpkgs">All Packages</a></li>
                 <li><a id="instructions" href="index.php?lang={$lang}&amp;action={$action}&amp;show=instructions">Instructions</a></li>
             </ul>
