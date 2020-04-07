@@ -20,8 +20,7 @@
             <ul id="flags">
                 <!-- do not use lang in navigation links here, the language will be take from the root site cookie --> 
                 <li class="nav">
-                    <a class="material-icons" href="https://wolf.ncbr.muni.cz/whitezone/root/index.php?action=main">home</a> / 
-                    <a href="https://wolf.ncbr.muni.cz/whitezone/root/index.php?action=support">Support</a>
+                    <a href="https://einfra.ncbr.muni.cz/whitezone/root/index.php?action=support">LCC Support</a>
                 </li>
                 <li>
                     <a id="EN" href="index.php?lang=en&amp;action={$action}&amp;show={$show}"><img src="images/en.png" alt="english flag" />English</a> 
@@ -32,7 +31,7 @@
             </div>
             <ul id="nav">
                 <li><a id="overview" href="index.php?lang={$lang}&amp;action={$action}&amp;show=overview">Overview</a></li>
-                <li><a id="alldpkgs" href="index.php?lang={$lang}&amp;action={$action}&amp;show=alldpkgs">All Packages</a></li>
+                <li><a id="alldpkgs" href="index.php?lang={$lang}&amp;action={$action}&amp;show=alldpkgs">Packages</a></li>
                 <li><a id="instructions" href="index.php?lang={$lang}&amp;action={$action}&amp;show=instructions">Instructions</a></li>
             </ul>
             <div id="main">
