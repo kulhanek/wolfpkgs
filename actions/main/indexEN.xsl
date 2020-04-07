@@ -39,7 +39,7 @@
                 <xsl:copy-of select="/div"/> 
             </div>
             <div id="footer">
-                <p> 2016 Petr Kulhánek; Attendance is monitored by <a href="http://www.piwik.org">Piwik</a>.
+                <p> 2016-2020 Petr Kulhánek; Attendance is monitored by <a href="http://www.piwik.org">Piwik</a>.
                     <!-- Piwik -->
                     <script type="text/javascript">
                     var pkBaseURL = (("https:" == document.location.protocol) ? "https://lcc.ncbr.muni.cz/whitezone/piwik/" : "http://lcc.ncbr.muni.cz/whitezone/piwik/");
