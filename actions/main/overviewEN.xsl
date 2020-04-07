@@ -4,7 +4,7 @@
     <xsl:template match="/">
     <div id="topic">
         <h1>Introduction</h1>
-        <p>This site provides you with information about all the packages available in the <xsl:value-of select="root/repository/title"/> package repository. Information how to activate access to this repository is available in <a href="index.php?lang={$lang}&amp;show=instructions">Instructions</a>. You can either browse <a href="index.php?lang={$lang}&amp;show=alldpkgs">all packages</a> or special purpose <a href="index.php?lang={$lang}&amp;show=metadpkgs">MetaPackages</a>, which are suitable to setup your machine for a desired function by installing all necessary software.</p>
+        <p>This site provides information about packages available in the <xsl:value-of select="root/repository/title"/> package repository. Information how to activate access to this repository is available in <a href="index.php?lang={$lang}&amp;show=instructions">Instructions</a>.</p>
         <h1><xsl:value-of select="root/repository/title"/></h1>
         <table class="info">
             <tr>
